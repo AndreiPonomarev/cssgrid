@@ -1,4 +1,5 @@
 const container = document.getElementById("container");
+const demoButton = document.getElementById("demoButton");
 
 const addItem = (i) => {
     const li = document.createElement('li');

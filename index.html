@@ -87,9 +87,13 @@
 
 				<section>
 					<h3>Что можно с ними сделать</h3>
-					<button type="button" name="magic" id="demoButton">Всякое</button>
-					<ul id="container">
-					</ul>
+					<div class="button-wrap">
+						<button type="button" class="magic" id="demoButton">Всякое</button>
+						<button type="button" class="magic" id="demo2Button">Разное</button>
+					</div>
+					<div class="cont-wrap">
+						<ul id="container"></ul>
+					</div>
 				</section>
 
 				<section>
@@ -359,7 +363,7 @@ grid-template-columns: 1fr 200px;
 
 				<section class="iframed">
 					<h3>Поддержка в браузерах</h3>
-					<iframe src="https://caniuse.com/#feat=css-grid" height="600"></iframe>
+					<iframe src="https://caniuse.com/#feat=css-grid" width="100%" height="600"></iframe>
 				</section>
 
 				<section>
@@ -415,6 +419,10 @@ grid-template-columns: 1fr 200px;
 					</ul>
 				</section>
 
+				<section class="iframed">
+					<h3>Можно поиграться</h3>
+					<iframe src="https://codesandbox.io/embed/5x5611lxjk?hidenavigation=1&codemirror=1" style="width:100%; height:600px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+				</section>
 				<section>
 					<h1>Конец</h1>
 					<h3>Автор Андрей Пономарев</h3>
@@ -425,6 +433,7 @@ grid-template-columns: 1fr 200px;
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 		<script src="js/demo.js"></script>
+		<script src="js/demo2.js"></script>
 
 		<script>
 			Reveal.initialize({
