@@ -7,7 +7,7 @@ const addItem = (i) => {
 
     image.setAttribute("class", "logo");
 
-    const cols = Math.floor(Math.random() * 1.5) + 1;
+    const cols = Math.floor(Math.random() * 1.8) + 1;
     const rows = Math.floor(Math.random() * 1.5) + 1;
     image.setAttribute("src", `https://picsum.photos/${cols*80+i*0.01}/${rows*80+i*0.01}`);
     image.setAttribute("class", "demo-img");

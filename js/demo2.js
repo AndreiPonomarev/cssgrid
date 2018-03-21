@@ -1,7 +1,5 @@
 const demo2Button = document.getElementById("demo2Button");
 
-console.log('demo2Button', demo2Button);
-
 const coordBasis = [[0, -1], [1, 1], [-2, 1], [0, -2]];
 const coordNext = [[2, 0], [0, 2], [-2, 0], [0, -2]];
 

@@ -17,7 +17,9 @@
 
 .magic {
     display: inline-block;
-    width: 382px;
+    width: 372px;
+    padding: 5px;
+    margin-bottom: 4px;
 }
 
 #container {
