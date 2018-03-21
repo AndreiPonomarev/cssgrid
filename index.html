@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Презентация CSS Grid layout</title>
+
+		<meta name="description" content="Нативная CSS сетка для построения классных интерфейсов, которой вы всё равно не будете пользоваться.">
+		<meta name="author" content="Андрей Пономарев">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/grid.css">
+
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>CSS Grid layout</h1>
+					<h3>Нативная CSS сетка для построения классных интерфейсов,</h3>
+					<p> которой вы всё равно не будете пользоваться.</p>
+					<p>
+						<small>Автор: <a href="#" title="Андрей Пономарев"> Андрей Пономарев</a></small>
+					</p>
+				</section>
+				<section class="grid-section">
+					<h3 class="slide-title">Что такое CSS Grid Layout</h3>
+					<img src="images/grid1.png" alt="grid1">
+					<p id="grid-1-description">CSS Grid Layout — самая мощная система компоновки из доступных на данный момент в CSS.</p>
+				</section>
+				<section>
+					<section class="grid-section">
+						<h3 class="slide-title">Не новая идея</h3>
+						<img class="full-width" src="images/timeline.png" alt="timeline">
+					</section>
+					<section class="grid-section">
+						<img src="images/bert-bos.jpg" style="width: 95%;" alt="bert bos">
+						<div class="wrap">
+							<h3>Gijsbert (Bert) Bos</h3>
+							<blockquote>
+								&ldquo;CSS начался как нечто очень простое. В то время  это был просто способ создать представление документа на очень простом маленьком экране.&rdquo;
+							</blockquote>
+						</div>
+					</section>
+					<section class="grid-section">
+						<img src="images/rachel-andrew.jpg" style="width: 95%;" alt="bert bos">
+						<div class="wrap">
+							<h3>Rachel Andrew</h3>
+							<blockquote>
+								&ldquo;Впервые я увидела на CSS Grid на семинаре, который вел Берт Бос на французском языке. И я не говорю по-французски, но я смотрела слайды и подумала: «Мы хотим это для веба. Это то, что нам действительно нужно.&rdquo;
+							</blockquote>
+						</div>
+					</section>
+					<section class="grid-section">
+						<img src="images/jen-simmons.jpg" style="width: 95%;" alt="bert bos">
+						<div class="wrap">
+							<h3>Jen Simmons</h3>
+							<blockquote>
+								&ldquo;There is a lot to learn. A lot for us to discover. A lot to invent. This truly is a revolution in graphic design on the web.&rdquo;
+							</blockquote>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Преимущества CSS GRID</h3>
+						<ol>
+							<li class="fragment"><a href="#" target="_blank">
+								Мощные, чтобы CSS grid позволял дизайнерам выражать свои желания
+							</a></li>
+							<li class="fragment"><a href="#" target="_blank">
+								Надежные, чтобы не было пробелов, которые могли бы привести к разваливанию вашего макета, препятствовать прокрутке или вызвать случайное исчезновение содержимого
+							</a></li>
+							<li class="fragment"><a href="#" target="_blank">
+								Производительные: если бы алгоритм не был достаточно быстрым, чтобы элегантно обрабатывать ситуации реального мира, такие как изменение размера браузера и динамическая загрузка контента, это разочаровало бы конечных пользователей
+							</a></li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<h3>Что можно с ними сделать</h3>
+					<button type="button" name="magic" id="demoButton">Всякое</button>
+					<ul id="container">
+					</ul>
+				</section>
+
+				<section>
+					<section>
+						<h3 class="slide-title">Контейнер</h3>
+						<div class="demo-grid">
+							<div class="demo-item" title="Это flex!">1</div>
+							<div class="demo-item" title="Это flex!">2</div>
+							<div class="demo-item" title="Это flex!">3</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+
+display: grid | inline-grid;
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Явная сетка</h3>
+						<div class="demo-grid" id="demo-2">
+							<div class="demo-item" title="Это flex!">1</div>
+							<div class="demo-item" title="Это flex!">2</div>
+							<div class="demo-item" title="Это flex!">3</div>
+							<div class="demo-item" title="Это flex!">4</div>
+							<div class="demo-item" title="Это flex!">5</div>
+							<div class="demo-item" title="Это flex!">6</div>
+							<div class="demo-item" title="Это flex!">7</div>
+							<div class="demo-item" title="Это flex!">8</div>
+							<div class="demo-item" title="Это flex!">9</div>
+							<div class="demo-item" title="Это flex!">10</div>
+							<div class="demo-item" title="Это flex!">11</div>
+							<div class="demo-item" title="Это flex!">12</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+grid-template-rows: 50px 100px;
+grid-template-columns: 3rem 25% 1fr 2fr;
+/* 1fr = ((ширина сетки) - (3rem) - (25% ширины сетки)) / 3 */
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Минимальный и максимальный размер сетки</h3>
+						<div class="demo-grid" id="demo-3">
+							<div class="demo-item" title="Это flex!">1</div>
+							<div class="demo-item" title="Это flex!">2</div>
+							<div class="demo-item" title="Это flex!">3</div>
+							<div class="demo-item" title="Это flex!">4. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore</div>
+							<div class="demo-item" title="Это flex!">5</div>
+							<div class="demo-item" title="Это flex!">6</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+grid-template-rows: minmax(100px, auto);
+grid-template-columns: minmax(auto, 50%) 1fr 3em;
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Повторяющиеся колонки сетки</h3>
+						<div class="demo-grid" id="demo-4">
+							<div class="demo-item" title="Это flex!">1</div>
+							<div class="demo-item" title="Это flex!">2</div>
+							<div class="demo-item" title="Это flex!">3</div>
+							<div class="demo-item" title="Это flex!">4</div>
+							<div class="demo-item" title="Это flex!">5</div>
+							<div class="demo-item" title="Это flex!">6</div>
+							<div class="demo-item" title="Это flex!">7</div>
+							<div class="demo-item" title="Это flex!">8</div>
+							<div class="demo-item" title="Это flex!">9</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+grid-template-rows: repeat(3, 100px);
+grid-template-columns: repeat(3, 1fr);
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Разрывы в сетке</h3>
+						<div class="demo-grid" id="demo-5">
+							<div class="demo-item" title="Это flex!">1</div>
+							<div class="demo-item" title="Это flex!">2</div>
+							<div class="demo-item" title="Это flex!">3</div>
+							<div class="demo-item" title="Это flex!">4</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+grid-row-gap: 20px;
+grid-column-gap: 5rem;
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Позиционирование по номерам линий сетки</h3>
+						<div class="demo-grid" id="demo-6">
+							<div class="demo-item" id="demo-6-1" title="Это flex!">1</div>
+							<div class="demo-item" title="Это flex!">2</div>
+							<div class="demo-item" title="Это flex!">3</div>
+							<div class="demo-item" title="Это flex!">4</div>
+							<div class="demo-item" title="Это flex!">5</div>
+							<div class="demo-item" title="Это flex!">6</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+grid-row-start: 2;
+grid-row-end: 3;
+grid-column-start: 2;
+grid-column-end: 3;
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Связующие элементы по строкам и столбцам</h3>
+						<div class="demo-grid" id="demo-7">
+							<div class="demo-item" id="demo-7-1" title="Это flex!">1</div>
+							<div class="demo-item" title="Это flex!">2</div>
+							<div class="demo-item" title="Это flex!">3</div>
+							<div class="demo-item" title="Это flex!">4</div>
+							<div class="demo-item" title="Это flex!">5</div>
+							<div class="demo-item" title="Это flex!">6</div>
+							<div class="demo-item" title="Это flex!">7</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+grid-row: 2/5;
+grid-column: 2/4;
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Именование и размещение элементов по сетке</h3>
+						<div class="demo-grid" id="demo-8">
+							<div class="demo-item" id="demo-8-1" title="Это flex!">grid-area: header;</div>
+							<div class="demo-item" id="demo-8-2" title="Это flex!">grid-area: content;</div>
+							<div class="demo-item" id="demo-8-3" title="Это flex!">grid-area: sidebar;</div>
+							<div class="demo-item" id="demo-8-4" title="Это flex!">grid-area: footer;</div>
+						</div>
+						<pre class="demo-code"><code data-trim contenteditable>
+grid-template-areas: 	"header header"
+			"content sidebar"
+			"footer footer";
+grid-template-rows:    80px 1fr 50px;
+grid-template-columns: 1fr 200px;
+
+						</code></pre>
+					</section>
+					<section>
+						<h3 class="slide-title">Выравнивание элементов сетки</h3>
+						<div class="demo-grid" id="demo-9">
+							<div class="demo-item demo-9-item" id="demo-9-1">
+								<div class="subitem-vertical">justify-items: <br/>center;</div>
+							</div>
+							<div class="demo-item demo-9-item" id="demo-9-2">
+								<div class="subitem">align-items: center;</div>
+							</div>
+							<div class="demo-item demo-9-item" id="demo-9-3">
+								<div class="subitem-vertical">justify-items:<br/>start;</div>
+							</div>
+							<div class="demo-item demo-9-item" id="demo-9-4">
+								<div class="subitem">align-items: start;</div>
+							</div>
+							<div class="demo-item demo-9-item" id="demo-9-5">
+								<div class="subitem-vertical">justify-items:<br/>end;</div>
+							</div>
+							<div class="demo-item demo-9-item" id="demo-9-6">
+								<div class="subitem">align-items: end;</div>
+							</div>
+							<div class="demo-item demo-9-item" id="demo-9-7">
+								<div class="subitem-vertical">justify-items: stretch;</div>
+							</div>
+							<div class="demo-item demo-9-item" id="demo-9-8">
+								<div class="subitem">align-items: stretch;</div>
+							</div>
+
+						</div>
+
+					</section>
+				</section>
+
+				<section>
+					<h3>Чем GRID лучше?</h3>
+					<p class="fragment">Чем другие!</p>
+				</section>
+
+				<section>
+					<section>
+						<h3>Таблицы</h3>
+						<ul>
+							<li class="fragment">
+								Огромный код. Для вывода таблицы требуется множество тегов. В реальных примерах табличной верстке часто встречаются еще и вложенные таблицы.
+							</li>
+							<li class="fragment">
+								Ухудшение скорости зарузки. Таблица имеет одну очень нехорошую особенность – она не будет отображена до тех пор, пока все ее ячейки, включая самые нижние, не будут загружены.
+							</li>
+							<li class="fragment">
+								Плохая индексация. Из-за большой разметки и обилия вложенных тегов текст на странице хуже воспринимается поисковыми системами.
+							</li>
+							<li class="fragment">
+								Неудобное управление через стили. Опять же, из-за обилия вложенных тегов таблицу сложно стилизовать.
+							</li>
+							<li class="fragment">
+								Несоответствие стандартам семантики.
+							</li>
+						</ul>
+
+					</section>
+
+					<section>
+						<h3>Float</h3>
+						<ul>
+							<li class="fragment">
+								"Выталкивание" (pushdown). Возникает когда элемент внутри float-элемента оказывается шире его (обычно это изображения).
+							</li>
+							<li class="fragment">
+								Двойной внешний отступ. Ошибка проявляющаяся в случае если вы устанавливаете внешний отступ в том же направлении, в котором у вас указан float.
+							</li>
+							<li class="fragment">
+								Трёх-пиксельный прыжок (3px Jog): текст, который расположен рядом с float-элементом неожиданно съезжает на 3 пикселя.
+							</li>
+							<li class="fragment">
+								Ошибка нижнего внешнего отступа (Bottom Margin Bug) - возникает когда элемент с установленным свойством float, содержит в себе ещё один float-элемент.
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Абсолютное позиционирование</h3>
+						<ul>
+							<li class="fragment">
+								Если ширине или высоте абсолютно позиционированного элемента присвоено значение auto, то её значение будет определяться шириной или высотой содержимого элемента. Если ширина или высота объявлена явно, то именно это значение и будет присвоено.
+							</li>
+							<li class="fragment">
+								Если внутри блока с position: absolute расположены элементы, для которых задано обтекание float, то высота этого элемента будет равна высоте самого высокого из этих элементов.
+							</li>
+							<li class="fragment">
+								Для элемента с position: absolute или position: fixed нельзя одновременно устанавливать свойство float.
+							</li>
+							<li class="fragment">
+								Если предок позиционированного элемента является блочным элементом, то блок-контейнер формируется областью содержимого, ограниченной рамкой (border). Если предок — строковый элемент, блок-контейнер формируется внешней границей его содержимого.
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Flex</h3>
+						<ul>
+							<li class="fragment">
+								Grid умеет то, что не умеет Flexbox;
+							</li>
+							<li class="fragment">
+								Flexbox умеет то, что не умеет Grid;
+							</li>
+							<li class="fragment">
+								Они могут работать в паре: ячейка grid может быть flexbox-контейнером. Flex-ячейка может быть grid-контейнером
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>В чем Grid лучше Flexbox:</h3>
+						<ul>
+							<li class="fragment">
+								создание макетов целых страниц. Даже если учитывать только производительность, сетки лучше;
+							</li>
+							<li class="fragment">
+								снижение зависимости от медиа запросов с помощью мощного функционала типа автомакетирования, minmax(), repeat() и auto-fill. Отличная идея.
+							</li>
+						</ul>
+						<br>
+						<p class="fragment">
+							И еще один большой плюс: Grid позиционирует элементы в двух плоскостях, по колонкам и строкам. Rachel Andrew доступно все объяснила: «Flexbox изначально предназначен для раскладки элементов в одной плоскости, строки ИЛИ колонки. Grid же позиционирует элементы в двух плоскостях, строки И колонки»
+						</p>
+					</section>
+				</section>
+
+				<section class="iframed">
+					<h3>Поддержка в браузерах</h3>
+					<iframe src="https://caniuse.com/#feat=css-grid" height="600"></iframe>
+				</section>
+
+				<section>
+					<h3>IE 10-11, Edge до 16 не поддерживают свойства</h3>
+					<ul>
+						<li class="fragment">
+							<a href="#">grid-template-areas</a>
+						</li>
+						<li class="fragment">
+							<a href="#">grid-area</a>
+						</li>
+						<li class="fragment">
+							<a href="#">grid-template</a>
+						</li>
+						<li class="fragment">
+							<a href="#">grid-auto-flow</a>
+						</li>
+						<li class="fragment">
+							<a href="#">grid-gap</a>
+						</li>
+					</ul>
+					<br>
+					<p class="fragment">
+						Мы можем написать фоллбэк, используя директиву
+						<pre class="fragment"><code data-trim contenteditable>
+							@supports not(grid-gap:0)
+						</code></pre>
+
+					</p>
+					<p class="fragment">
+						<a href="#">…но IE не поддерживает директиву @supports =(</a>
+					</p>
+				</section>
+
+				<section>
+					<h3>Пусть меня научат</h3>
+					<ul>
+						<li>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">MDN</a>
+						</li>
+						<li>
+							<a href="https://gridbyexample.com/examples/">Rachel Andrew</a>
+						</li>
+						<li>
+							<a href="http://labs.jensimmons.com">Jen Simmons</a>
+						</li>
+						<li>
+							<a href="https://alistapart.com/article/practical-grid">Eric Meyer</a>
+						</li>
+						<li>
+							<a href="https://cssgrid.io">Wes Bos</a>
+						</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Конец</h1>
+					<h3>Автор Андрей Пономарев</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/demo.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme,
+				transition: Reveal.getQueryHash().transition || 'default',
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
