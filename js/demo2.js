@@ -11,48 +11,50 @@ let coords = [BASIS, BASIS];
 let num = 1;
 
 const addSnake = (colStart = BASIS, rowStart = BASIS, cols = 1, rows = 1) => {
-  const li = document.createElement("li");
-  const image = document.createElement('img');
-  image.setAttribute("class", "logo");
-  image.setAttribute("src", `https://picsum.photos/${cols*80+num*0.01}/${rows*80+num*0.01}`);
-  image.setAttribute("class", "demo-img");
+    const li = document.createElement("li");
+    const image = document.createElement('img');
+    image.setAttribute("class", "logo");
+    image.setAttribute("src", `https://picsum.photos/${cols*80+Math.random()*0.01}/${rows*80+Math.random()*0.01}`);
+    image.setAttribute("class", "demo-img");
 
-  const layout = `grid-column: ${colStart}/span ${cols}; grid-row: ${rowStart}/span ${rows}`;
-  li.setAttribute("style", layout);
-  li.setAttribute("class", 'demo-pic')
-  li.appendChild(image);
-  setTimeout(() => container.appendChild(li), num * 100);
-  num++;
+    const layout = `grid-column: ${colStart}/span ${cols}; grid-row: ${rowStart}/span ${rows}`;
+    li.setAttribute("style", layout);
+    li.setAttribute("class", 'demo-pic')
+    li.appendChild(image);
+    setTimeout(() => container.appendChild(li), num * 50);
+    num++;
 
 };
 
 const addCircle = wrap => {
-  for (let i = 0; i < 4; i++) {
-    coords = coords.map((value, index) => {
-      return value + coordBasis[i][index];
-    });
-    let span = i % 2 ? [1, 2] : [2, 1];
-    addSnake(...coords, ...span);
+    for (let i = 0; i < 4; i++) {
+        coords = coords.map((value, index) => {
+            return value + coordBasis[i][index];
+        });
+        let span = i % 2 ? [1, 2] : [2, 1];
+        addSnake(...coords, ...span);
 
-    for (let j = 1; j < wrap; j++) {
-      coords = coords.map((value, index) => {
-        return value + coordNext[i][index];
-      });
-      span = i % 2 ? [1, 2] : [2, 1];
-      addSnake(...coords, ...span);
+        for (let j = 1; j < wrap; j++) {
+            coords = coords.map((value, index) => {
+                return value + coordNext[i][index];
+            });
+            span = i % 2 ? [1, 2] : [2, 1];
+            addSnake(...coords, ...span);
+        }
     }
-  }
 };
 
 demo2Button.onclick = function() {
-    console.log('click');
-  num = 1;
-  container.innerHTML = "";
-  coords = [BASIS, BASIS];
-  let span = [1, 1];
-  addSnake(...coords, ...span);
+    const highestTimeoutId = setTimeout(";");
+    for (let i = 0 ; i < highestTimeoutId ; i++) {
+        clearTimeout(i);
+    }  num = 1;
+    container.innerHTML = "";
+    coords = [BASIS, BASIS];
+    let span = [1, 1];
+    addSnake(...coords, ...span);
 
-  for (let w = 1; w < BASIS; w++) {
-    addCircle(w);
-  }
+    for (let w = 1; w < BASIS; w++) {
+        addCircle(w);
+    }
 };

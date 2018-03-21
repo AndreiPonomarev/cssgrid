@@ -24,13 +24,16 @@ const addItem = (i) => {
 
 demoButton.onclick = function() {
     container.innerHTML = '';
-
+    const highestTimeoutId = setTimeout(";");
+    for (let i = 0 ; i < highestTimeoutId ; i++) {
+        clearTimeout(i);
+    }
     let i = 0;
     (function() {
         if (i < 70) {
             addItem(i)
             i++;
-            setTimeout(arguments.callee, 100);
+            setTimeout(arguments.callee, 70);
         }
     })();
 };
