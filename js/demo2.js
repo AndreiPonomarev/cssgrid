@@ -14,7 +14,7 @@ const addSnake = (colStart = BASIS, rowStart = BASIS, cols = 1, rows = 1) => {
     const li = document.createElement("li");
     const image = document.createElement('img');
     image.setAttribute("class", "logo");
-    image.setAttribute("src", `https://picsum.photos/${cols*80+Math.random()*0.01}/${rows*80+Math.random()*0.01}`);
+    image.setAttribute("src", `https://picsum.photos/${cols*80+num*0.01}/${rows*80+num*0.01}`);
     image.setAttribute("class", "demo-img");
 
     const layout = `grid-column: ${colStart}/span ${cols}; grid-row: ${rowStart}/span ${rows}`;
