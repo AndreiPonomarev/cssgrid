@@ -110,7 +110,7 @@ pre.demo-code {
 #pain-3 {
     color: #212121;
     height: 500px;
-    grid-template-rows: 100px 1fr 1fr 1fr 50px;
+    grid-template-rows: 100px 1fr 1fr 1fr 1fr 50px;
     grid-template-columns: repeat(3, 1fr);
 }
 #pain-3-1 {
@@ -125,7 +125,7 @@ pre.demo-code {
 }
 #pain-3-7 {
     background-color: seagreen;
-    grid-row: 2/-1;
+    grid-row: 2/-2;
     grid-column: 3/4;
 }
 #pain-3-8 {
