@@ -17,20 +17,21 @@
 
 .magic {
     display: inline-block;
-    width: 372px;
+    width: 382px;
     padding: 5px;
     margin-bottom: 4px;
+    font-size: 22px;
 }
 
 #container {
     list-style-type: none;
     display: grid;
-    grid-template-columns: repeat(11, 70px);
-    grid-template-rows: repeat(11, 60px);
+    grid-template-columns: repeat(9, 85px);
+    grid-template-rows: repeat(9, 60px);
     overflow: hidden;
     margin: 0;
     padding: 0;
-    /* overflow:  scroll; */
+    grid-auto-flow: row dense;
 }
 .cont-wrap {align-items:  center;justify-content:  center;display:  flex;}
 .demo-pic {

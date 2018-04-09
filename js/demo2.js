@@ -3,7 +3,7 @@ const demo2Button = document.getElementById("demo2Button");
 const coordBasis = [[0, -1], [1, 1], [-2, 1], [0, -2]];
 const coordNext = [[2, 0], [0, 2], [-2, 0], [0, -2]];
 
-const BASIS = 6;
+const BASIS = 5;
 
 let coords = [BASIS, BASIS];
 let num = 1;
