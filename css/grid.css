@@ -17,7 +17,7 @@
 
 .magic {
     display: inline-block;
-    width: 382px;
+    width: 379px;
     padding: 5px;
     margin-bottom: 4px;
     font-size: 22px;
@@ -27,7 +27,7 @@
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(9, 85px);
-    grid-template-rows: repeat(9, 60px);
+    grid-template-rows: repeat(9, 70px);
     overflow: hidden;
     margin: 0;
     padding: 0;
