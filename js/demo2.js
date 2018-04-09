@@ -19,7 +19,7 @@ const addSnake = (colStart = BASIS, rowStart = BASIS, cols = 1, rows = 1) => {
     li.setAttribute("style", layout);
     li.setAttribute("class", 'demo-pic')
     li.appendChild(image);
-    setTimeout(() => container.appendChild(li), num * 50);
+    setTimeout(() => container.appendChild(li), num * 150);
     num++;
 
 };
